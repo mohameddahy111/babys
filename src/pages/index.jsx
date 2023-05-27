@@ -1,0 +1,7 @@
+export {default as Home} from './Home'
+export {default as About} from './About'
+export {default as Registration} from './Registration'
+export {default as Dashborad} from './admin/Dashborad'
+export {default as Orders} from './admin/Orders'
+export {default as Meetings} from './admin/Meetings'
+export {default as MeetingMap} from './admin/MeetingMap'

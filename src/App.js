@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import Routers from './routers/router';
+import { StoreProvider } from './context/Store';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<StoreProvider>
+			<LocalizationProvider dateAdapter={AdapterDayjs}>
+				<RouterProvider router={Routers}></RouterProvider>
+			</LocalizationProvider>
+		</StoreProvider>
+	);
 }
 
 export default App;

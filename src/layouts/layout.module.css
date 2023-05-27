@@ -1,0 +1,7 @@
+.navContainer{
+    background-image: url('../../public/img/klipartz.com.png');
+    height: 100vh;width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
