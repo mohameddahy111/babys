@@ -13,6 +13,9 @@ export const StoreProvider = ({ children }) => {
 	const [orderListLength, setOrderListLength] = useState(
 		localStorage.orderListLength ? JSON.parse(localStorage.orderListLength) : 0
 	);
+	const [student, setStudent] = useState(
+		localStorage.student ? JSON.parse(localStorage.student) : []
+	);
 	return (
 		<Store.Provider
 			value={{
@@ -23,6 +26,7 @@ export const StoreProvider = ({ children }) => {
 				setOrderListLength,
 				meetingList,
 				setMeetingList,
+				student, setStudent
 			}}
 		>
 			{children}

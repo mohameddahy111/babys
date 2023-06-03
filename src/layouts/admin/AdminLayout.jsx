@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { StoreProvider } from '../../context/Store';
 import { AdminNav } from './components';
 import {
 	Accordion,
@@ -21,7 +20,7 @@ import { DataStore } from '../../context/Store';
 
 const AdminLayout = () => {
 	const [expanded, setExpanded] = useState(false);
-	const { orderListLength, setOrderListLength } = DataStore();
+	const {  setOrderListLength , orderList } = DataStore();
 
 	const handleChange = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : false);
@@ -38,7 +37,7 @@ const AdminLayout = () => {
 				<Grid item md={3}>
 					{/*Accordion */}
 					{sliderIconList.map((x, index) => (
-						<>
+						<div 	key={index}>
 							{x.list ? (
 								<Accordion
 									key={index}
@@ -58,8 +57,8 @@ const AdminLayout = () => {
 									<AccordionDetails>
 										<List>
 											{x.list.map((y, index) => (
-												<Link to={y.path}>
-													<ListItem key={index}>
+												<Link to={y.path} key={index}>
+													<ListItem >
 														<ListItemIcon>
 															<Badge
 																badgeContent={0}
@@ -89,7 +88,7 @@ const AdminLayout = () => {
 										<ListItem>
 											<ListItemIcon>
 												<Badge
-													badgeContent={orderListLength}
+													badgeContent={orderList.length }
 													anchorOrigin={{
 														vertical: 'top',
 														horizontal: 'left',
@@ -105,7 +104,7 @@ const AdminLayout = () => {
 									</Link>
 								</List>
 							)}
-						</>
+						</div>
 					))}
 				</Grid>
 				{/* left side */}

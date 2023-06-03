@@ -1,6 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layouts from '../layouts/Layouts';
-import { About, Dashborad, Home, MeetingMap, Meetings, Orders, Registration } from '../pages';
+import {
+	About,
+	CompleteFile,
+	Dashborad,
+	Home,
+	Login,
+	MeetingMap,
+	Meetings,
+	Orders,
+	Registration,
+} from '../pages';
 import AdminLayout from '../layouts/admin/AdminLayout';
 const Routers = createBrowserRouter([
 	{
@@ -14,6 +24,14 @@ const Routers = createBrowserRouter([
 			{
 				path: '/about',
 				element: <About />,
+			},
+			{
+				path: '/login',
+				element: <Login />,
+			},
+			{
+				path: '/user/:userId/complete_file',
+				element: <CompleteFile />,
 			},
 			{
 				path: '/registration',
@@ -32,15 +50,15 @@ const Routers = createBrowserRouter([
 			},
 			{
 				path: '/admin/orders',
-				element: <Orders/>,
+				element: <Orders />,
 			},
 			{
 				path: '/admin/meetings_map',
-				element: <MeetingMap/>,
+				element: <MeetingMap />,
 			},
 			{
 				path: '/admin/new_meetings/:id',
-				element: <Meetings/>,
+				element: <Meetings />,
 			},
 		],
 	},

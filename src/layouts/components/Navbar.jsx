@@ -7,7 +7,7 @@ import {
 	Typography,
 } from '@mui/material';
 import React from 'react';
-import { Link, useNavigate, useRoutes } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../layout.module.css';
 import { DataStore } from '../../context/Store';
 
@@ -23,7 +23,7 @@ const Navbar = () => {
 					}}
 				>
 					<Container className={mobileDives ? '' : styles.navContainer}>
-						<Box display={'flex'} justifyContent={'center'}>
+						<Box display={'flex'} justifyContent={'space-between'}>
 							<Box>
 								<Link to={'/'}>
 									<Typography
@@ -36,7 +36,7 @@ const Navbar = () => {
 									</Typography>
 								</Link>
 							</Box>
-							<Box p={2}>
+							<Box p={2} display={'flex'} gap={1}>
 								<Button
 									variant='contained'
 									onClick={() => {
@@ -44,6 +44,14 @@ const Navbar = () => {
 									}}
 								>
 									registration
+								</Button>
+								<Button
+									variant='contained'
+									onClick={() => {
+										navigate('/login');
+									}}
+								>
+									login
 								</Button>
 							</Box>
 						</Box>

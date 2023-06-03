@@ -1,5 +1,4 @@
 import {
-	Button,
 	IconButton,
 	Table,
 	TableBody,
@@ -16,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
 	const navgiate = useNavigate();
-	const { orderList, meetingList, setMeetingList, setOrderList } = DataStore();
+	const { orderList, } = DataStore();
 
 	const meetingDone = (item) => {
 		// const meet = [...meetingList];
@@ -24,11 +23,6 @@ const Orders = () => {
 		// localStorage.setItem('meetingList', JSON.stringify(meet));
 		// setMeetingList(meet);
 		navgiate(`/admin/new_meetings/${item.phone}`);
-	};
-	const DeleteMeeting = (item) => {
-		const list = orderList.filter((x) => x.phone !== item.phone);
-		setOrderList(list);
-		localStorage.setItem('orderList', JSON.stringify(list));
 	};
 
 	return (
